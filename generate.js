@@ -1,5 +1,5 @@
 //this array stores our starting keys, and the keys that will be added by the user
-var topics =["iron man", "captain america", "spiderman", "black widow", "hulk", "thor", "vision", "scarlet witch", "black panther", "hawkeye", "falcon", "war machine", "nick fury", ];
+var topics =["Iron Man", "Captain America", "Spiderman", "Black Widow", "Hulk", "Thor", "Vision", "Scarlet Witch", "Black Panther", "Hawkeye", "Falcon", "War Machine", "Nick Fury", ];
 
 //this function will take all the keys in the topics array and turn them into buttons in the button-holder div
 function renderButtons() {
@@ -23,7 +23,8 @@ function getGifs(subject) {
     console.log(result);
     $("#gif-box").empty();
     result.data.forEach(function(item) {
-      var newGifDiv = $("<span>");
+      var newGifDiv = $("<div>");
+      newGifDiv.addClass('gif-div text-center');
       var image = $("<img>");
       image.addClass('gif');
       image.attr('src', item.images.fixed_height_still.url);
@@ -57,7 +58,7 @@ function addTopic(input) {
 $(window).on("load", function() {
   
   renderButtons(); //loads the initial set of the buttons to the page
-  // getGifs(topics[5]);
+  getGifs(topics[5]);
   // getGifs(topics[7]);
 
   $("#button-holder").on("click", ".btn", function() {
